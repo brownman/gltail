@@ -24,7 +24,7 @@ module GlTail
         session_options[:keys] = keys if keys
         session_options[:verbose] = :debug if $DBG > 1
         session_options[:password] = password if password
-
+        
         begin
           if gateway
             puts "Connecting via gateway #{gateway}..." if($VRB > 0 || $DBG > 0)
