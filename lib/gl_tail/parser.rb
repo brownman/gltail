@@ -41,6 +41,7 @@ class Parser
   end
   
   def add_event( opts = {} )
+    puts "add_event #{opts}"
     @source.add_event( opts )
   end
 end

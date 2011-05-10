@@ -4,12 +4,14 @@
 # Licensed under the GNU General Public License v2 (see LICENSE)
 #
 
-class Item
+class Item  #circle shape
   attr_accessor :message, :size, :color, :type
 
   def initialize(message, size, color, type)
-    @message = message
-    @size = size
+    puts "item.rb init: #{size} #{type} #{message}"
+    @message =  message
+
+    @size = size*10
     @color = color
     @type = type
   end

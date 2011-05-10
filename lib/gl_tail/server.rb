@@ -9,6 +9,7 @@ class Server
 
 
   def initialize(options)
+    puts "Server.init with options: #{options}"
     @name = options[:name] || options[:host]
     @host = options[:host]
     @color = options[:color] || [1.0, 1.0, 1.0, 1.0]
@@ -18,6 +19,9 @@ class Server
 
     # instantiate the parser
     @parser = @parser.new( self )
+require 'ap'
+puts " line 22"
+ap @parser
 
   end
 
@@ -29,6 +33,7 @@ class Server
       @max_size = size if size > @max_size
       size = $CONFIG.min_blob_size + ((size / @max_size) * ($CONFIG.max_blob_size - $CONFIG.min_blob_size))
       options[:size] = size
+
     end
 
     block = @blocks[options[:block]].add_activity( { :name => @name, :color => @color, :size => $CONFIG.min_blob_size }.update(options) ) if (options[:block] && @blocks[options[:block]])

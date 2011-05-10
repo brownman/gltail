@@ -45,6 +45,7 @@ module GlTail
     end
 
     def self.included(receiver)
+      puts "#{receiver}"
       receiver.extend ClassMethods
     end
   end

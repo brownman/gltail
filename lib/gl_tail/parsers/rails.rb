@@ -7,6 +7,7 @@
 # Parser which handles Rails access logs
 class RailsParser < Parser
   def parse( line )
+    puts "parser: rails.rb: parse #{line}"
     if matchdata = /^Started (GET|PUT|DELETE|POST) \"([\/A-Za-z0-9\-_]+)\" for (\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b)/.match(line)
       _, method, url, host = matchdata.to_a
     end

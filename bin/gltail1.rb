@@ -4,7 +4,7 @@
 #
 # Licensed under the GNU General Public License v2 (see LICENSE)
 
-$DBG=0
+$DBG=1
 $VRB=1
 
 file = 'gl_tail.yaml'
@@ -108,6 +108,9 @@ end
 config = GlTail::Config.parse_yaml(file)
 
 engine = GlTail::Engine.new(config)
-puts "1.config.parse-yaml"
-puts "2.engine.new.start"
+puts "ofer"
+require 'rubygems'
+require 'ap'
+require 'pp'
+
 engine.start

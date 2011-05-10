@@ -1,28 +1,35 @@
 # Only use spaces to indent, not tabs
 
 servers:
-    site1:
-        host: foobar.com
-        user: foo
-        password: topsecret
-        command: tail -f -n0
-        files: /var/log/apache/access_log
-        parser: apache
-        color: 0.2, 1.0, 0.2, 1.0
     rails:
-        host: anotherfunsite.com
-        user: anotherfunuser
-        port: 222
-        command: tail -f -n0
-        files: /var/www/apps/funapp/current/log/production.log
-        parser: rails
-        color: 0.2, 0.2, 1.0, 1.0
-    dev:
-        host: clockingit.com
+        host: 0.0.0.0
         source: local
-        files: /var/www/clockingit/logs/production.log
+        files: /home/dao01/RAILS/sample_app/log/development.log
         parser: rails
         color: 0.2, 0.2, 1.0, 1.0
+
+#    site1:
+#        host: foobar.com
+#        user: foo
+#        password: topsecret
+#        command: tail -f -n0
+#        files: /var/log/apache/access_log
+#        parser: apache
+#        color: 0.2, 1.0, 0.2, 1.0
+#    rails:
+#        host: anotherfunsite.com
+#        user: anotherfunuser
+#        port: 222
+#        command: tail -f -n0
+#        files: /var/www/apps/funapp/current/log/production.log
+#        parser: rails
+#        color: 0.2, 0.2, 1.0, 1.0
+#    dev:
+#        host: clockingit.com
+#        source: local
+#        files: /var/www/clockingit/logs/production.log
+#        parser: rails
+#        color: 0.2, 0.2, 1.0, 1.0
 config:
     dimensions: 1200x600
     min_blob_size: 0.004
@@ -161,3 +168,4 @@ config:
 resolver:
     reverse_ip_lookups: true
     reverse_timeout: 0.5
+

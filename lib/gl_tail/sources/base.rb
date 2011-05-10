@@ -33,10 +33,12 @@ module GlTail
       end
     
       def add_activity( opts = {} )
+        puts "add activity: #{opts}"
         @config.add_activity( self, opts )
       end
 
       def add_event( opts = {} )
+        puts "add event: #{opts}"
         @config.add_event( self, opts )
       end    
     end

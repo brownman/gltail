@@ -9,6 +9,7 @@ class Activity
   attr_accessor :message, :color, :size, :type, :body, :shape, :gl_list
 
   def initialize(message, x, y, z, color, size, type = 0)
+    puts "activity.rb: init: #{message}"
     @shape = @body = nil
     @message = message
     @x, @y, @z = x, y, z
@@ -99,6 +100,7 @@ class Activity
           glDisable(GL_LINE_SMOOTH);
 
           glEndList()
+          puts "activity.rb: blobstore.put-gl-list:{@gl_list}"
           BlobStore.put((@size * 1000).to_i, @gl_list)
         end
       end 
@@ -131,7 +133,7 @@ class Activity
       glRasterPos(0.0, 0.0)
 
       @text_list ||= engine.render_string(@message, false)
-
+ puts "add text: #{@text_list}"
       glCallList(@text_list)
 
     end

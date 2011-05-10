@@ -15,6 +15,7 @@ module GlTail
         end
       
         def process
+          puts '@log.get last line  + parse.line'
           @log.tail(1) { |line|
             parser.parse(line) 
           }

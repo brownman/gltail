@@ -98,7 +98,9 @@ class Block
   end
 
   def add_activity(options = { })
+    
     return unless options[:name]
+    puts "block.rb: add_activity: #{options}"
     x = nil
     unless @elements[options[:name]]
       x = Element.new(self, options[:name], @color || options[:color] )

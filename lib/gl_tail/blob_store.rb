@@ -45,6 +45,8 @@ class BlobStore
   end
 
   def self.empty
+ puts @store.inspect
+
     @store.keys.each do |k|
       glDeleteLists(@store[k], 1)
       @store.delete k

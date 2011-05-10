@@ -10,6 +10,7 @@ module GlTail
     attr_accessor :space
 
     def render_string(text, cache=true, pos=0)
+      puts "engine.rb: render_string(): text:#{text} pos:#{pos}"
       FontStore.render_string(self, text, cache, pos)
     end
 
@@ -291,15 +292,17 @@ module GlTail
       @left_left = @left_right = @right_left = @right_right = 0.0 # TODO: Why is draw called before these are set by reshape?
 
       if $PHYSICS
+        puts "glut.init: env has physics? #{$PHYSICS}"
         @space = CP::Space.new
         @space.damping = 0.89
-        @space.gravity = CP::Vec2.new(0, -85)
+        @space.gravity = CP::Vec2.new(0, -1)
         @space.iterations = 2
         @space.elastic_iterations = 0
       end 
     end
 
     def start
+      puts '3. glut: Init window  + register key'
       glutInit()
       glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE)
 
@@ -341,13 +344,13 @@ module GlTail
       glEnable(GL_COLOR_MATERIAL)
       glEnable(GL_NORMALIZE)
  
-
+      puts 'FontStore. generate font store'
       FontStore.generate_font
 
       glBlendFunc(GL_ONE, GL_ONE) # Make text transparent
 
       @since = glutGet(GLUT_ELAPSED_TIME)
-
+puts '4. @config.init'
       @config.init
 
       glutMainLoop()

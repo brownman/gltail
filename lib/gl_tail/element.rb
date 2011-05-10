@@ -43,7 +43,8 @@ class Element
     @last_number = nil
   end
 
-  def add_activity(message, color, size,  type, real_size)
+  def add_activity(message, color, size,  type, real_size)      
+    puts "element.rb: add_activity_item(): message,type:#{message}#{type}"
     @bar_color[0] = @bar_color[0] + (@color[0] - @bar_color[0]) / 5
     @bar_color[1] = @bar_color[1] + (@color[1] - @bar_color[1]) / 5
     @bar_color[2] = @bar_color[2] + (@color[2] - @bar_color[2]) / 5
@@ -61,6 +62,7 @@ class Element
   end
 
   def add_event(message, color, update_stats)
+    puts "element.rb: add event #{messages} #{update_stats} #{color}"
     @pending.push Item.new(message, 0.01, color, 2)
     if update_stats
       @messages += 1
@@ -161,7 +163,7 @@ class Element
     if d.abs < 0.001
       @y = @wy
     else
-      @y += d / 20
+      @y += d / 20000
     end
 
     d = @wx - @x
